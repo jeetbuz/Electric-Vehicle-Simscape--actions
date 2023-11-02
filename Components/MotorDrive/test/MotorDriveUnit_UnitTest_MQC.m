@@ -8,17 +8,15 @@ classdef MotorDriveUnit_UnitTest_MQC < matlab.unittest.TestCase
 methods (Test)
 
 
-%% Harness folder
+    %% Harness folder
 
-function MQC_Harness_1(~)
-  close all
-  bdclose all
-  mdl = "MotorTestHarness";
-  load_system(mdl)
-  sim(mdl);
-  close all
-  bdclose all
-end
+    function MQC_Harness_1(testCase)
+        mdl = "MotorTestHarness";
+        load_system(mdl)
+        testCase.addTeardown(@()close_system(mdl, 0));
+        sim(mdl);
+
+    end
 
 end
 

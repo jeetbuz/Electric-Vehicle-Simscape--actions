@@ -17,16 +17,14 @@ classdef BatteryHV_UnitTest_MQC < matlab.unittest.TestCase
 
 methods (Test)
 
-function MQC(~)
-  close all
-  bdclose all
-  mdl = "BatteryTestHarness";
-  load_system(mdl)
-  BatteryTestHarnessParam;
-  sim(mdl);
-  close all
-  bdclose all
-end
+    function MQC(testCase)
+        mdl = "BatteryTestHarness";
+        load_system(mdl)
+        BatteryTestHarnessParam;
+        testCase.addTeardown(@()close_system(mdl, 0));
+        sim(mdl);
+
+    end
 
 end
 
