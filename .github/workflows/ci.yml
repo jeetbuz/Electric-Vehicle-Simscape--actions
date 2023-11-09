@@ -36,6 +36,22 @@ on:
 
 jobs:
 
+  job-check-project:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Setup MATLAB
+        uses: matlab-actions/setup-matlab@v1
+        with:
+          release: R2023a
+
+      - name: Run tests
+        uses: matlab-actions/run-command@v1
+        with:
+          command: openProject(pwd); BEVProject_runtests_CheckProject;
 
   job-run-tests:
 
