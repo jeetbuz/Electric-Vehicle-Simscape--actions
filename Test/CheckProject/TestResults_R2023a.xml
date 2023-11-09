@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<testsuites>
-  <testsuite errors="0" failures="0" name="BEVProject_CheckProject" skipped="0" tests="1" time="4.9146">
-    <testcase classname="BEVProject_CheckProject" name="BEVProject_CheckProject" time="4.9146"/>
-  </testsuite>
-</testsuites>

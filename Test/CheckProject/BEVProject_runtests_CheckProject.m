@@ -4,15 +4,15 @@
 
 % Copyright 2022 The MathWorks, Inc.
 
-RelStr = matlabRelease().Release;
-disp("This is MATLAB " + RelStr + ".")
+relstr = matlabRelease().Release;
+disp("This is MATLAB " + relstr + ".")
 
-TopFolder = currentProject().RootFolder;
+prjroot = currentProject().RootFolder;
 
 %% Create test suite
 
 suite = matlab.unittest.TestSuite.fromFile( ...
-  fullfile(TopFolder, "Test", "CheckProject", "BEVProject_CheckProject.m"));
+  fullfile(prjroot, "Test", "CheckProject", "BEVProject_CheckProject.m"));
 
 %% Create test runner
 
@@ -22,7 +22,7 @@ runner = matlab.unittest.TestRunner.withTextOutput( ...
 %% JUnit Style Test Result
 
 plugin = matlab.unittest.plugins.XMLPlugin.producingJUnitFormat( ...
-            fullfile(TopFolder, "Test", "CheckProject", "TestResults_"+RelStr+".xml"));
+            fullfile(prjroot, "Test", "CheckProject", "TestResults_"+relstr+".xml"));
 
 addPlugin(runner, plugin)
 
