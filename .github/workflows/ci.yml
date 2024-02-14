@@ -38,7 +38,8 @@ jobs:
 
   job-check-project:
     runs-on: ubuntu-latest
-    using: 'node20'
+    runs: 
+        using: 'node20'
     steps:
 
       - name: Check out repository
@@ -60,7 +61,7 @@ jobs:
     needs: job-check-project
 
     runs-on: ubuntu-latest
-    using: 'node20'
+   
     steps:
 
       - name: Check out repository
